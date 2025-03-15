@@ -1,5 +1,12 @@
 import streamlit as st
 
+# ✅ Move this to the very top
+st.set_page_config(
+    page_title="Your App Title",
+    page_icon="🚀",
+    layout="wide"
+)
+
 try:
     import google.generativeai as genai
 except ImportError:
@@ -20,6 +27,7 @@ if API_KEY:
 else:
     st.error("❌ API Key not found. Please set it in Streamlit secrets.")
     st.stop()
+
 
 # Streamlit Page Config
 st.set_page_config(

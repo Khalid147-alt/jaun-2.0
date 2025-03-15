@@ -1,5 +1,9 @@
 import streamlit as st
-import google.generativeai as genai
+try:
+    import google.generativeai as genai
+except ImportError:
+    st.error("Please install google-generativeai: pip install google-generativeai")
+    st.stop()
 import os
 from dotenv import load_dotenv
 

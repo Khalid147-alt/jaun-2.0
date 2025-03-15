@@ -13,7 +13,7 @@ API_KEY = os.getenv("AIzaSyBhRpi4m44xHZwPUQZMqaEqPu1AV9WgrzQ")
 
 # Configure Google AI API
 if API_KEY:
-    genai.configure(api_key="AIzaSyBhRpi4m44xHZwPUQZMqaEqPu1AV9WgrzQ")#i know but iam having some problem so i will delete it after checking app functionality
+    genai.configure(api_key=AIzaSyBhRpi4m44xHZwPUQZMqaEqPu1AV9Wgrz)#i know but iam having some problem so i will delete it after checking app functionality
 else:
     st.error("API Key not found. .")
     st.stop()

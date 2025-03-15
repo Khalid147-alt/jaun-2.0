@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()  # Load from .env file
-API_KEY = os.getenv("GOOGLE_API_KEY") 
+API_KEY = os.getenv("AIzaSyBhRpi4m44xHZwPUQZMqaEqPu1AV9WgrzQ") #i know but iam having some problem so i will delete it after checking app functionality
 
 # Configure Google AI API
 if API_KEY:

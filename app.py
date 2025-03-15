@@ -1,21 +1,24 @@
 import streamlit as st
+
 try:
     import google.generativeai as genai
 except ImportError:
     st.error("Please install google-generativeai: pip install google-generativeai")
     st.stop()
 import os
-from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()  # Load from .env file
-API_KEY = os.getenv("AIzaSyBhRpi4m44xHZwPUQZMqaEqPu1AV9WgrzQ") 
+# Load API Key from Streamlit secrets
+if "GOOGLE_API_KEY" in st.secrets:
+    API_KEY = st.secrets["GOOGLE_API_KEY"]
+else:
+    API_KEY = None
 
 # Configure Google AI API
 if API_KEY:
-    genai.configure(api_key=AIzaSyBhRpi4m44xHZwPUQZMqaEqPu1AV9Wgrz)#i know but iam having some problem so i will delete it after checking app functionality
+    genai.configure(api_key=API_KEY)
+    st.success("✅ API Key loaded successfully!")
 else:
-    st.error("API Key not found. .")
+    st.error("❌ API Key not found. Please set it in Streamlit secrets.")
     st.stop()
 
 # Streamlit Page Config

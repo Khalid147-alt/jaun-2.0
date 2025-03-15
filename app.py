@@ -1,41 +1,36 @@
 import streamlit as st
 
-# ✅ Move this to the very top
+# ✅ MUST be the first Streamlit command
 st.set_page_config(
-    page_title="Your App Title",
-    page_icon="🚀",
+    page_title="Jaun Elia GPT",
+    page_icon="✍️",
     layout="wide"
 )
 
+import os
+from dotenv import load_dotenv
+
+# ✅ Ensure this is AFTER `st.set_page_config()`
 try:
     import google.generativeai as genai
 except ImportError:
     st.error("Please install google-generativeai: pip install google-generativeai")
     st.stop()
-import os
 
-# Load API Key from Streamlit secrets
-if "GOOGLE_API_KEY" in st.secrets:
-    API_KEY = st.secrets["GOOGLE_API_KEY"]
-else:
-    API_KEY = None
+# Load API Key from .env
+load_dotenv()
+API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Configure Google AI API
 if API_KEY:
     genai.configure(api_key=API_KEY)
     st.success("✅ API Key loaded successfully!")
 else:
-    st.error("❌ API Key not found. Please set it in Streamlit secrets.")
+    st.error("❌ API Key not found. Please set it in Streamlit secrets or .env file.")
     st.stop()
 
 
-# Streamlit Page Config
-st.set_page_config(
-    page_title="Jaun Elia GPT",
-    page_icon="✍️",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+
 
 
 # Sidebar content

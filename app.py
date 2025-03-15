@@ -24,7 +24,7 @@ API_KEY = os.getenv("GOOGLE_API_KEY")
 # Configure Google AI API
 if API_KEY:
     genai.configure(api_key=API_KEY)
-    st.success("✅ API Key loaded successfully!")
+    
 else:
     st.error("❌ API Key not found. Please set it in Streamlit secrets or .env file.")
     st.stop()
